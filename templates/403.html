@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Forbidden
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Forbidden (403) </h1>
+        <p>Whoop! You are not authorized to view this page, <a href="{% url 'home' %}">Click Here</a>To get back to the Home Page</p>
+        <p>Contact and administrator if you still want to view this page</p>
+    </div>
+{% endblock %}

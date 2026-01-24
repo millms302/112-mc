@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Log In
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Log In</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" value="Log In" class="btn btn-success">
+    </form>
+</div>
+<div class="container">
+    <p>If you forgot your password,<a href="{% url 'password_reset' %}">Click Here</a> to change it.</p>
+</div>
+{% endblock %}

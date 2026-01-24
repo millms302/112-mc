@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Archived Posts
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-4 d-flex flex-wrap">
+        {% for item in archived %}
+            <div class="card mt-4 ms-3 me-3" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{item.title}}</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">{{item.created_on}}</li>
+                        <li class="list-group-item">{{item.author}}</li>
+                        <li class="list-group-item">{{item.status}}</li>
+                    </ul>
+                    <a href="{% url 'post_detail' item.id %}" class="card-link">Continue reading...</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

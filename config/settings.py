@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pages',
     'posts',
+    'crispy_bootstrap5',
+    'crispy_forms',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -97,7 +100,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    },   
 ]
 
 
@@ -119,3 +122,22 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS=[str(BASE_DIR.joinpath("static"))]
+
+# Default primary key fieldtype
+# https://docs.djangoproject.com/en/6.0/howto/static-files/
+
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [str(BASE_DIR.joinpath("static"))]
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+### crispy_forms variables ###
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+LOGIN_REDIRECT_URL = 'home'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

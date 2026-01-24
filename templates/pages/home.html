@@ -2,20 +2,20 @@
 {% load static %}
 
 {% block title %}
-    Home Page
+Home Page
 {% endblock %}
 
 {% block css %}
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock %}
 
 {% block js %}
-    <script src="{% static 'js/home.js' %}"></script>
+<script src="{% static 'js/home.js' %}"></script>
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <h1>Home Page</h1>
-        <p>This is my homepage using DTL!</p>
-    </div>
+<div class="container m-4">
+    <h1 class="text-center">The Record Board</h1>
+    <p>A simple place for people to speak of the joys of collecting a spinning vinyl</p>
+</div>
 {% endblock %}
