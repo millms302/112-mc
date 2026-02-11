@@ -71,17 +71,19 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     # The name of the fields have to match with the attributes of the model.
     fields = ["title", "subtitle", "body", "status"] 
 
-class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
-    """
-    """
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
+
+class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     template_name = "posts/edit.html"
     model = Post
     fields = ["title", "subtitle", "body", "status"]
 
     def test_func(self):
         post = self.get_object()
-        if self.request.user.is_authenticated():
+        if self.request.user.is_authenticated:
             if self.request.user == post.author:
                 return True
             else:
@@ -100,7 +102,7 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
     def test_func(self):
         post = self.get_object()
-        if self.request.user.is_authenticated():
+        if self.request.user.is_authenticated:
             if self.request.user == post.author:
                 return True
             else:
